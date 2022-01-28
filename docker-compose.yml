@@ -3,22 +3,22 @@ version: "3"
 services:
   mariadb:
     image: mariadb:latest
-    container_name:  ##SUBOMAIN##-mariadb
+    container_name:  ##SUBDOMAIN##-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: '##DB_ROOT_PASSWORD##'
       MYSQL_DATABASE: ##DB_NAME##
 
   web:
     image: tuxgasy/dolibarr
-    container_name: ##SUBOMAIN##-dolibarr
+    container_name: ##SUBDOMAIN##-dolibarr
     environment:
       DOLI_DB_HOST: mariadb
       DOLI_DB_USER: ##DB_USER##
       DOLI_DB_PASSWORD: '##DB_PASSWORD##'
       DOLI_DB_NAME: ##DB_NAME##
-      DOLI_URL_ROOT: 'https://##SUBOMAIN##.knutech.fr'
+      DOLI_URL_ROOT: 'https://##SUBDOMAIN##.knutech.fr'
       PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
-      VIRTUAL_HOST: 'https://##SUBOMAIN##.knutech.fr'
+      VIRTUAL_HOST: 'https://##SUBDOMAIN##.knutech.fr'
       VIRTUAL_PORT: 80
     ports:
       - "80:80"
