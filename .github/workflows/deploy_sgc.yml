@@ -1,6 +1,8 @@
 name: Deploy Dolibarr on Production for sgc domain
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - main
 
 env:
   INSTALL_FOLDER: /data/dolibarr-sgc
