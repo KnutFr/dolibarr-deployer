@@ -1,4 +1,4 @@
-name: Deploy Backoffice on Production for sgc domain
+name: Deploy Dolibarr on Production for sgc domain
 on:
   workflow_dispatch
 
