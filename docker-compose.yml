@@ -4,8 +4,6 @@ services:
   mariadb:
     image: mariadb:latest
     container_name:  ##SUBDOMAIN##-mariadb
-    networks:
-      - knutech
     environment:
       MYSQL_ROOT_PASSWORD: '##DB_ROOT_PASSWORD##'
       MYSQL_DATABASE: ##DB_NAME##
@@ -13,8 +11,6 @@ services:
   web:
     image: tuxgasy/dolibarr
     container_name: ##SUBDOMAIN##-dolibarr
-    networks:
-      - knutech
     environment:
       DOLI_DB_HOST: mariadb
       DOLI_DB_USER: ##DB_USER##
@@ -28,4 +24,6 @@ services:
       - mariadb
 
 networks:
-  knutech:
+  default:
+    external:
+      name: knutech
