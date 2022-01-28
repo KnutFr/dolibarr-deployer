@@ -1,38 +1,27 @@
-version: '3'
+version: "3"
+
 services:
-  webapp:
-    image: nginx:stable
-    depends_on:
-      - php
-      - db
-    networks:
-      - knutech
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/default.d:/etc/nginx/default.d
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./www:/var/www/html
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: '##DB_ROOT_PASSWORD##'
+      MYSQL_DATABASE: ##DB_NAME##
+
+  web:
+    image: tuxgasy/dolibarr
+    environment:
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_USER: ##DB_USER##
+      DOLI_DB_PASSWORD: '##DB_PASSWORD##'
+      DOLI_DB_NAME: ##DB_NAME##
+      DOLI_URL_ROOT: 'https://##SUBOMAIN##.knutech.fr'
+      PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
+      VIRTUAL_HOST: 'https://##SUBOMAIN##.knutech.fr'
+      VIRTUAL_PORT: 80
     ports:
       - "80:80"
-
-  php:
-    image: php:7.0-fpm
-    restart: always
-    networks:
-      - knutech
-    volumes:
-      - ./www:/var/www/html
-
-  db:
-    image: mysql:5.7
-    restart: always
-    networks:
-      - knutech
-    volumes:
-      - ./db/db_data:/var/lib/mysql
-      - ./db/conf.d:/etc/mysql/conf.d
-    env_file:
-      - .env/db.env
+    links:
+      - mariadb
 
 networks:
   knutech:
