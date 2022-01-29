@@ -12,7 +12,9 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
   web:
-    build: build
+    build:
+      dockerfile: build/Dockerfile
+      context: build
     container_name: ##SUBDOMAIN##-dolibarr
     environment:
       DOLI_ADMIN_LOGIN: ##CRM_USER##
