@@ -12,7 +12,7 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
   web:
-    image: tuxgasy/dolibarr
+    build: build
     container_name: ##SUBDOMAIN##-dolibarr
     environment:
       DOLI_ADMIN_LOGIN: ##CRM_USER##
@@ -25,14 +25,11 @@ services:
       PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
       VIRTUAL_HOST: '##SUBDOMAIN##-crm.archops.fr'
       LETSENCRYPT_HOST: '##SUBDOMAIN##-crm.archops.fr'
-      WWW_USER_ID: 1001
-      WWW_GROUP_ID: 1001
     links:
       - mariadb
     volumes:
       - ./doli/documents:/var/www/documents
-      - ./conf/php:/usr/local/etc/php
-      - ./conf/doli:/var/www/htdocs/conf
+      - ./conf/php.ini:/usr/local/etc/php.ini
 
 networks:
   default:
