@@ -29,7 +29,7 @@ services:
       - mariadb
     volumes:
       - ./doli/documents:/var/www/documents
-      - ./conf/php.ini:/usr/local/etc/php.ini
+      - ./conf/php.ini:/usr/local/etc/php/php.ini
 
 networks:
   default:
