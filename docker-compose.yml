@@ -25,8 +25,8 @@ services:
       PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
       VIRTUAL_HOST: '##SUBDOMAIN##-crm.archops.fr'
       LETSENCRYPT_HOST: '##SUBDOMAIN##-crm.archops.fr'
-      WWW_USER_ID: 1000
-      WWW_GROUP_ID: 1000
+      WWW_USER_ID: 1001
+      WWW_GROUP_ID: 1001
     links:
       - mariadb
     volumes:
