@@ -69,7 +69,7 @@ EXPOSE 80
 VOLUME /var/www/documents
 VOLUME /var/www/html/custom
 
-COPY docker-run.sh /usr/local/bin/
-ENTRYPOINT ["/usr/local/bin/docker-run.sh"]
+COPY docker-run.sh /bin/
+ENTRYPOINT ["docker-run.sh"]
 
 CMD ["apache2-foreground"]
