@@ -22,7 +22,7 @@ services:
       DOLI_URL_ROOT: 'https://##SUBDOMAIN##-crm.archops.fr'
       PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
       VIRTUAL_HOST: 'https://##SUBDOMAIN##-crm.archops.fr'
-      VIRTUAL_PORT: 80
+      LETSENCRYPT_HOST: 'https://##SUBDOMAIN##-crm.archops.fr'
     links:
       - mariadb
     volumes:
