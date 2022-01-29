@@ -19,9 +19,9 @@ services:
       DOLI_DB_USER: ##DB_USER##
       DOLI_DB_PASSWORD: '##DB_PASSWORD##'
       DOLI_DB_NAME: ##DB_NAME##
-      DOLI_URL_ROOT: 'https://##SUBDOMAIN##.knutech.fr'
+      DOLI_URL_ROOT: 'https://##SUBDOMAIN##-crm.archops.fr'
       PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
-      VIRTUAL_HOST: 'https://##SUBDOMAIN##.knutech.fr'
+      VIRTUAL_HOST: 'https://##SUBDOMAIN##-crm.archops.fr'
       VIRTUAL_PORT: 80
     links:
       - mariadb
