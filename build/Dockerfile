@@ -52,7 +52,7 @@ RUN apt-get update -y \
 
 
 COPY custom.ini $PHP_INI_DIR/conf.d/
-ENV DOLI_VERSION 14.0.5
+ENV DOLI_VERSION 16.0.3
 
 # Get Dolibarr
 RUN curl -fLSs https://github.com/Dolibarr/dolibarr/archive/${DOLI_VERSION}.tar.gz |\
